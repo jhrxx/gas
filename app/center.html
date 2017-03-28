@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>个人中心</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/center.css -->
+  <link rel="stylesheet" href="styles/center.css">
+  <!-- endbuild -->
+</head>
+
+<body id="center">
+  <section class="page">
+    <div class="preview">
+      <div id="title_bar" class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+        </div>
+        <div class="weui-form-preview__bd">
+          <div class="weui-form-preview__item" id="username_row">
+            <div class="weui-form-preview__label" id="username">
+              <span id="avatar"></span>
+              <span id="nickname"></span>
+            </div>
+            <span class="weui-form-preview__value">
+              <a id="bind" href="mobile.html">绑定手机</a>
+            </span>
+          </div>
+          <div class="weui-form-preview__item">
+            <div class="weui-form-preview__label">我的积分： <span id="score"></span></div>
+            <span id="mobile" class="weui-form-preview__value">绑定手机可获得100积分</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="weui-cells">
+        <a class="weui-cell weui-cell_access"  href="score.html">
+          <div class="weui-cell__bd">
+            <p>我的积分</p>
+          </div>
+          <div class="weui-cell__ft">
+          </div>
+        </a>
+      </div>
+      <div class="weui-cells">
+        <a class="weui-cell weui-cell_access"  href="expenses.html">
+          <div class="weui-cell__bd">
+            <p>我的消费</p>
+          </div>
+          <div class="weui-cell__ft">
+          </div>
+        </a>
+      </div>
+      <div class="weui-cells">
+        <a class="weui-cell weui-cell_access" href="exchange.html">
+          <div class="weui-cell__bd">
+            <p>我的兑换</p>
+          </div>
+          <div class="weui-cell__ft">
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/center.js -->
+  <script src="scripts/center.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

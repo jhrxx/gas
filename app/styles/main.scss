@@ -1,0 +1,42 @@
+// bower:scss
+// endbower
+
+body {
+  background: #eee;
+  font-family: "PingFangTC-Regular", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "微软雅黑", sans-serif; 
+  color: #333;
+}
+.hide {
+  display: none;
+}
+
+.page {
+  background-color: #eee;
+}
+.text-right {
+  text-align: right;
+}
+select.text-right {
+  direction: rtl;
+}
+
+.footer-btn {
+  border-radius: 0;
+  color: #fff !important;
+  padding:  .4em 0;
+}
+.flex-btns {
+
+}
+.weui-footer_fixed-bottom {
+  bottom: 0;
+}
+.weui-btn[disabled] {
+  opacity: .5;
+}
+.weui-btn_default {
+  background-color: #bfbfbf;
+}
+.weui-btn_default:not(.weui-btn_disabled):active {
+  background-color: darken(#bfbfbf, 10%);
+}

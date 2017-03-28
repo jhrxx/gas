@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>附近的加油</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/gas-station-list.css -->
+  <link rel="stylesheet" href="styles/gas-station-list.css">
+  <!-- endbuild -->
+</head>
+
+<body>
+  <section class="hide">
+
+  </section>
+
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+
+  <div id="errorMsg" class="weui-msg hide">
+        <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">数据获取失败</h2>
+        </div>
+    </div>
+
+    <div class="js_dialog hide" id="confirmLocationDialog">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog weui-skin_android">
+            <div class="weui-dialog__bd">
+                是否选择这个加油站
+            </div>
+            <div class="weui-dialog__ft">
+                <a id="closeDialog" class="weui-dialog__btn weui-dialog__btn_default">不选择</a>
+                <a id="confirmLocation" class="weui-dialog__btn weui-dialog__btn_primary">确认选择</a>
+            </div>
+        </div>
+    </div>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/gas-station-list.js -->
+  <script src="scripts/gas-station-list.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

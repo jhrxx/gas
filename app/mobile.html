@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>手机绑定</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/mobile.css -->
+  <link rel="stylesheet" href="styles/mobile.css">
+  <!-- endbuild -->
+</head>
+
+<body>
+  <section>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell weui-cell__bd">
+              <input class="weui-input" id="phone_number" maxlength="11" type="tel" placeholder="请输入手机号">
+          </div>
+          <div id="send" class="weui-cell__ft">
+              <button class="weui-vcode-btn">获取验证码</button>
+          </div>
+      </div>
+      <div class="weui-cell weui-cell_vcode">
+          <div class="weui-cell weui-cell__bd">
+              <input class="weui-input" id="verify_code" type="tel" maxlength="6" placeholder="请输入短信验证码">
+          </div>
+          <div id="resend" class="weui-cell__ft hide">
+              <button class="weui-vcode-btn">重发送验证码</button>
+          </div>
+      </div>
+  </div>
+  </section>
+  <div class="weui-footer weui-footer_fixed-bottom">
+      <p class="weui-footer__links">
+          <a id="bind_mobile_btn" href="#" class="weui-btn weui-btn_warn footer-btn" id="add_invoice_btn">确认绑定手机</a>
+      </p>
+  </div>
+
+  <div id="sendToast" class="hide">
+    <div class="weui-toast -min">
+      <span class="weui-toast__content">验证码已发送</span>
+    </div>
+  </div>
+
+  <div id="errorToast" class="hide">
+    <div class="weui-toast -min">
+      <span id="error_hint" class="weui-toast__content">验证码错误</span>
+    </div>
+  </div>
+
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/mobile.js -->
+  <script src="scripts/mobile.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+// .page {
+//   background-color: #f8f8f8;
+// }
+
+.bottom-actions {
+	width: 100%;
+	.weui-btn {
+		float: right;
+		border-radius: 0;
+		& + div {
+			float: left;
+			line-height: 46px;
+			padding-left: 10px;
+			color: red;
+		}
+	}
+}
+
+.weui-cell + .weui-cells {
+	margin-top:  0;
+}
+
+#invoic p span {
+	color: #999;
+}
+#invoice_title {
+	// font-size: 12px;
+	color: #999;
+}
+#feedbackDialog .weui-dialog__bd {
+	color: red;
+}

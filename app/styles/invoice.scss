@@ -1,0 +1,22 @@
+// #invoice .weui-cells_radio .weui-check:checked+.weui-icon-checked:before {
+// 	display: inline-block;
+// }
+#invoice {
+	.weui-footer a {
+		color: #fff;
+		border-radius: 0;
+		padding: .4em;
+	}
+}
+#invoice .weui-icon-checked:before { 
+	display: inline-block;
+}
+
+#invoice .weui-cells_radio .weui-cell__bd {
+	position: relative;
+	padding:  .4em 1.4em;
+}
+#invoice .weui-cells_radio .weui-icon-checked {
+	left: 0;
+	position: absolute;
+}

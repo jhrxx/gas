@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>开票信息-新增</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/add-invoice.css -->
+  <link rel="stylesheet" href="styles/add-invoice.css">
+  <!-- endbuild -->
+</head>
+
+<body id="add_invoice">
+  <section class="hide">
+    <div class="page input js_show">
+      <div class="page__bd">
+        <div class="weui-cells">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">名称</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input id="invoice_name" class="weui-input">
+            </div>
+          </div>
+        </div>
+        <div class="weui-cells">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">地址</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input id="address" class="weui-input">
+            </div>
+          </div>
+        </div>
+        <div class="weui-cells">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">电话</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input id="phone" class="weui-input" type="number" pattern="[0-9]*">
+            </div>
+          </div>
+        </div>
+        <div class="weui-cells">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">开户行</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input id="bankname" class="weui-input">
+            </div>
+          </div>
+        </div>
+        <div class="weui-cells">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">账号</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input id="bankcode" class="weui-input" type="number" pattern="[0-9]*">
+            </div>
+          </div>
+        </div>
+        <div class="weui-cells">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">纳税人识别号</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input id="tax_id" class="weui-input" type="number" pattern="[0-9]*" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="weui-footer weui-footer_fixed-bottom">
+        <p class="weui-footer__links">
+            <button class="weui-btn weui-btn_warn footer-btn" id="add_invoice_btn">添加</button>
+        </p>
+    </div>
+  </section>
+
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+
+
+  <div class="page dialog">
+      <div class="js_dialog hide" id="hintDialog">
+          <div class="weui-mask"></div>
+          <div class="weui-dialog weui-skin_android">
+              <div class="weui-dialog__bd" id="hint"></div>
+              <div class="weui-dialog__ft">
+                  <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/add-invoice.js -->
+  <script src="scripts/add-invoice.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

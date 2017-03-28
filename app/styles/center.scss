@@ -1,0 +1,42 @@
+#title_bar {
+  background-color: #ff4e44;
+  .weui-form-preview__hd:after {
+  	display: none;
+  }
+  * {
+    color: #fff;
+  }
+  .weui-form-preview__label {
+    text-align: left;
+    text-align-last: left;
+  }
+}
+
+#avatar {
+  // position: absolute;
+  // left: 15px;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ddd;
+  background-size: 100% 100%;
+}
+#username {
+  // padding-left: 70px;
+  // line-height: 60px;
+}
+#username_row {
+	height: 80px;
+}
+#bind {
+	display: inline-block;
+	margin: 15px;
+	padding: 3px 10px;
+	background-color: #65bb17;
+	border-radius: 30px;
+  &.binded {
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+}

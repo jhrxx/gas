@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <!-- <title>gas station</title> -->
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/payment.css -->
+  <link rel="stylesheet" href="styles/payment.css">
+  <!-- endbuild -->
+</head>
+
+<body>
+  <section class="hide">
+    <div class="page flex">
+      <a class="weui-cell weui-cell_access" id="current_station_name" href="gas-station-list.html">
+        <div class="weui-cell__bd">
+          <p></p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+      </a>
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__hd">
+            <label class="weui-label">支付金额</label>
+          </div>
+          <div class="weui-cell__bd">
+            <input class="weui-input text-right" id="payment" type="number" pattern="[0-9]*" placeholder="请输入支付金额">
+          </div>
+        </div>
+      </div>
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__hd">
+            <label class="weui-label">车牌号</label>
+          </div>
+          <div class="weui-cell__bd">
+            <input id="car_number" class="weui-input text-right" type="text" placeholder="请输入车牌号">
+          </div>
+        </div>
+      </div>
+      <div class="weui-cells">
+        <div class="weui-cell weui-cell_select weui-cell_select-after"  id="oil_type">
+          <div class="weui-cell__hd">
+            <label class="weui-label">油品</label>
+          </div>
+          <div class="weui-cell__bd">
+            <select id="gas_type" class="weui-select text-right" name="select1">
+            </select>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after" id="oil_gun">
+          <div class="weui-cell__hd">
+            <label class="weui-label">油枪号</label>
+          </div>
+          <div class="weui-cell__bd">
+            <select id="gun_number" class="weui-select  text-right" name="select2">
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell weui-cell_switch">
+          <div class="weui-cell__bd">是否开票</div>
+          <div class="weui-cell__ft">
+            <input class="weui-switch" id="invoiceing" type="checkbox">
+          </div>
+        </div>
+        <a class="weui-cell weui-cell_access hide" href="invoice.html" id="invoice">
+          <div class="weui-cell__bd">
+            <p>发票抬头<span id="invoice_title"></span></p>
+          </div>
+          <div class="weui-cell__ft">
+          </div>
+        </a>
+      </div>
+      <div class="weui-tabbar">
+        <div class="bottom-actions">
+          <a class="weui-btn weui-btn_warn" id="pay_now" href="javascript:;">在线支付</a>
+          <div id="discount"></div>
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="hide">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">支付成功</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="dialog">
+    <!--BEGIN dialog-->
+    <div class="js_dialog hide" id="feedbackDialog">
+      <div class="weui-mask"></div>
+      <div class="weui-dialog weui-skin_android">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">支付成功</strong></div>
+        <div class="weui-dialog__bd">
+          ￥<span>0.01</span>
+        </div>
+        <div class="weui-dialog__ft">
+          <a href="javascript:;" id="confirm" class="weui-dialog__btn weui-dialog__btn_primary">确认</a>
+        </div>
+      </div>
+    </div>
+    <!--END dialog-->
+  </div>
+
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+  <div id="errorMsg" class="weui-msg hide">
+    <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+    <div class="weui-msg__text-area">
+      <h2 class="weui-msg__title">数据获取失败</h2>
+    </div>
+  </div>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/payment.js -->
+  <script src="scripts/payment.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

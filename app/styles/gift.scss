@@ -1,0 +1,31 @@
+#gift {
+	text-align: center;
+	font-size: 14px;
+	color: #79d290;
+	background-color: #439057;
+	section {
+		background-color: #fff;
+		box-shadow: 0 0 1px 0 #333 inset;
+		border-radius: 5px;
+		width: 80%;
+		height: 330px;
+		width: 80vw;
+		height: 100vw;
+		margin: 50px auto 15px;
+		text-align: center;
+		p {
+			color: #333;
+			// margin-top: 20px;
+			font-size: 14px;
+		}
+	}
+}
+#qrcode {
+	padding-top: 5%;
+	height: 60%;
+	width: 60%;
+	padding-top: 5vh;
+	height: 60vw;
+	width: 60vw;
+	margin: 0 auto 15px;
+}

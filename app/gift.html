@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>商品兑换</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/gift.css -->
+  <link rel="stylesheet" href="styles/gift.css">
+  <!-- endbuild -->
+</head>
+
+<body id="gift">
+  <section class="page">
+    <div id="qrcode"></div>
+    <p>商品名称：<span id="name"></span></p>
+    <p>兑换积分：<span id="score"></span></p>
+    <!-- <p>提示：<span id="hint"></span></p> -->
+    <p>加油站备注： 只限当前加油站内兑换</p>
+  </section>
+  <p>查询兑换详情可到用户中心我的兑换里查询</p>
+
+  
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/gift.js -->
+  <script src="/bower_components/qrcode.js/qrcode.js"></script>
+  <script src="scripts/gift.js"></script>
+  <!-- endbuild -->
+</body>
+
+</htm>

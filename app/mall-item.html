@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>商品详情</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/mall-item.css -->
+  <link rel="stylesheet" href="styles/mall-item.css">
+  <!-- endbuild -->
+</head>
+
+<body id="mall_item">
+  <section>
+    <h1>商品详情</h1>
+    <div id="content"></div>
+  </section>
+  <div class="weui-footer weui-footer_fixed-bottom">
+      <p class="weui-footer__links">
+          <a href="#" class="weui-btn weui-btn_warn footer-btn" id="add_invoice_btn">点击换取礼品</a>
+      </p>
+  </div>
+
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/mall-item.js -->
+  <script src="scripts/mall-item.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

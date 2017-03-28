@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>个人中心</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/score.css -->
+  <link rel="stylesheet" href="styles/score.css">
+  <!-- endbuild -->
+</head>
+
+<body id="score">
+  <section class="page">
+    <div class="weui-cells__title">我的积分</div>
+    <div id="container" class="weui-cells">
+      <!-- <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <p>加油站名称</p>
+          <p class="muted">2016-11-27 12:27:28</p>
+        </div>
+        <div class="weui-cell__ft">
+          <p>消费100</p>
+          <p class="red">未兑换</p>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <p>加油站名称</p>
+          <p class="muted">2016-11-27 12:27:28</p>
+        </div>
+        <div class="weui-cell__ft">
+          <p>消费100.00</p>
+          <p class="red">积分+10</p>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/score.js -->
+  <script src="scripts/score.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>
