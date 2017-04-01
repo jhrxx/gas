@@ -29,7 +29,7 @@ $(function() {
       }
     };
 
-    $.post('/zsh/app_interface/index.php', {
+    $.post(requestUrl, {
       route: 'wechat/wechat/wechat_getinvoiceinfo',
       token: null,
       jsonText: JSON.stringify({
@@ -45,7 +45,7 @@ $(function() {
   }
 
   $deleteBtn.click(function() {
-    $.post('/zsh/app_interface/index.php', {
+    $.post(requestUrl, {
       route: 'wechat/wechat/wechat_invoice',
       token: null,
       jsonText: JSON.stringify({
@@ -78,7 +78,7 @@ $(function() {
   };
 
   var edit = function(data) {
-    $.post('/zsh/app_interface/index.php', {
+    $.post(requestUrl, {
       route: 'wechat/wechat/wechat_invoice',
       token: null,
       jsonText: JSON.stringify(data)

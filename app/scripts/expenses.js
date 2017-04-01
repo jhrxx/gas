@@ -56,7 +56,7 @@ $(function() {
   var getExpensesList = function() {
     if (typeof resp === 'undefined') {
       if (openId && unionId) {
-        $.post('/zsh/app_interface/index.php', {
+        $.post(requestUrl, {
           route: 'wechat/wechat/get_order_list',
           token: null,
           jsonText: JSON.stringify({ 'unionid': unionId })

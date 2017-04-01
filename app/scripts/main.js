@@ -22,5 +22,7 @@
 
   self.getUrlQueryObj = getUrlQueryObj;
   self.getTimestamp = getTimestamp;
+  self.requestUrl = '/zsh/app_interface/index.php';
+   // self.requestUrl = 'http://www.xauto123.com/zsh/app_interface/index.php';
 
 }.call(window));

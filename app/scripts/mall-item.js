@@ -36,7 +36,7 @@ $(function() {
 
     if (typeof exchange === 'undefined') {
       if (openId && unionId) {
-        $.post('/zsh/app_interface/index.php', {
+        $.post(requestUrl, {
           route: 'wechat/wechat/score_exchange',
           token: null,
           jsonText: JSON.stringify({
@@ -119,7 +119,7 @@ $(function() {
 
   if (typeof resp === 'undefined') {
     if (openId && unionId) {
-      $.post('/zsh/app_interface/index.php', {
+      $.post(requestUrl, {
         route: 'wechat/wechat/get_product',
         token: null,
         jsonText: JSON.stringify({

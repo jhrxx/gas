@@ -81,7 +81,7 @@ $(function() {
   var getProductListByStationId = function(id) {
     // id = 3;
     if (typeof resp === 'undefined') {
-      $.post('/zsh/app_interface/index.php', {
+      $.post(requestUrl, {
         route: 'wechat/wechat/get_product_list',
         token: null,
         jsonText: JSON.stringify({ 'station_id': id })
@@ -130,7 +130,8 @@ $(function() {
       lon: longitude,
       lat: latitude
     };
-    $.post('/zsh/app_interface/index.php', {
+
+    $.post(requestUrl, {
       route: 'wechat/wechat/wechat_getstation',
       token: null,
       jsonText: JSON.stringify(location)

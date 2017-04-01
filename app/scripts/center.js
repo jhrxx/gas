@@ -39,7 +39,7 @@ $(function() {
 
   if (typeof resp === 'undefined') {
     if (openId && unionId) {
-      $.post('/zsh/app_interface/index.php', {
+      $.post(requestUrl, {
         route: 'wechat/wechat/wx_member_check',
         token: null,
         jsonText: JSON.stringify({

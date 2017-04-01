@@ -91,7 +91,7 @@ $(function() {
   var getVerifyCode = function(num) {
     if (typeof resp === 'undefined') {
       if (openId && unionId) {
-        $.post('/zsh/app_interface/index.php', {
+        $.post(requestUrl, {
           route: 'wechat/wechat/getVerifyCode',
           token: null,
           jsonText: JSON.stringify({
@@ -161,7 +161,7 @@ $(function() {
         }
 
         if (isValidateCode(verifyCode) && isValidatePhoneNum(phoneNumber)) {
-          $.post('/zsh/app_interface/index.php', {
+          $.post(requestUrl, {
             route: 'wechat/wechat/wx_member_mobile',
             token: null,
             jsonText: JSON.stringify({

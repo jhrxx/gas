@@ -61,7 +61,7 @@ $(function() {
   };
 
   if (typeof resp === 'undefined') {
-    $.post('/zsh/app_interface/index.php', {
+    $.post(requestUrl, {
       route: 'wechat/wechat/wechat_getinvoice',
       token: null,
       jsonText: JSON.stringify({ openid: localStorage.getItem('openid') })

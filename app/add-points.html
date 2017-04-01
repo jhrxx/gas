@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>线下付款添加积分</title>
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/bower_components/weui/dist/style/weui.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/add-points.css -->
+  <link rel="stylesheet" href="styles/add-points.css">
+  <!-- endbuild -->
+</head>
+
+<body>
+  <section class="page hide">
+    <h1 id="station_name">加油站名称</h1>
+    <article class="weui-article">
+      <section>
+        <h3>尊敬的客户您好</h3>
+        <p>
+          当您加完油付款完成后，可点击屏幕下方按钮，让加油站的收银员通过积分后台系统为您添加积分
+        </p>
+        <p class="red">
+          积分规则：人民币 1 元 = 1 积分
+        </p>
+      </section>
+    </article>
+    <div></div>
+    <div class="weui-footer weui-footer_fixed-bottom">
+      <p class="weui-footer__links">
+        <a id="add_points_btn" href="#" class="weui-btn weui-btn_warn footer-btn">付款后点击通知收银员添加积分</a>
+      </p>
+    </div>
+  </section>
+
+
+  <div id="loadingToast">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">数据加载中</p>
+    </div>
+  </div>
+
+  <div class="js_dialog hide" id="msgDialog">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+      <div class="weui-dialog__bd"><p class="red" id="msg">线下添加积分成功</p></div>
+      <div class="weui-dialog__ft">
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确认</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/decimal.js/decimal.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <!-- build:js scripts/wechat.js -->
+  <script src="scripts/wechat.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/add-points.js -->
+  <script src="scripts/add-points.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

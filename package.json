@@ -42,6 +42,7 @@
         "jsapi": true,
         "QRCode": true,
         "Decimal": true,
+        "requestUrl": true,
         "getTimestamp": true,
         "getUrlQueryObj": true
     },

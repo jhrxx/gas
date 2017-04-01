@@ -1,5 +1,5 @@
 $(function() {
-  $.post('/zsh/app_interface/index.php', {
+  $.post(requestUrl, {
     route: 'wechat/wechat/test',
     token: null,
     jsonText: null

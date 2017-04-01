@@ -7,10 +7,12 @@ var jsapi, userInfo;
 $(function() {
   var query = getUrlQueryObj();
   var code;
+  var openId;
   if (query && query.code) {
     code = query.code;
-  } else if (localStorage.getItem('openid')) {
-    code = localStorage.getItem('openid');
+  }
+  if (localStorage.getItem('openid')) {
+    openId = localStorage.getItem('openid');
   }
 
   var onGetWechatUserInfo = function(resp) {
@@ -20,11 +22,14 @@ $(function() {
     if (resp.data && resp.status && resp.status.succeed === '1') {
       user = resp.data.userinfo;
       // console.log('User: ', user);
-      if (!$.isEmptyObject(localStorage.userInfo)) {
-        // storage data
-        localStorage.setItem('userInfo', JSON.stringify(user));
+      if ($.isEmptyObject(localStorage['user_' + user.openid])) {
+        // storage user data
+        localStorage.setItem('user_' + user.openid, JSON.stringify(user));
+      }
 
-        localStorage.setItem('unionid_' + code, user.union_id);
+      if ($.isEmptyObject(localStorage['unionid_' + user.openid])) {
+        // storage unionid
+        localStorage.setItem('unionid_' + user.openid, user.union_id);
       }
     }
   };
@@ -33,7 +38,7 @@ $(function() {
     // console.log('getWechatUserInfoByOpenId: ', id);
     if (id) {
       if (typeof userInfo === 'undefined') {
-        $.post('/zsh/app_interface/index.php', {
+        $.post(requestUrl, {
           route: 'wechat/wechat/get_wx_user',
           token: null,
           jsonText: JSON.stringify({ 'openid': id })
@@ -78,19 +83,23 @@ $(function() {
 
   var callback = function(resp) {
     resp = JSON.parse(resp);
+    if (resp.status && resp.status.succeed === '1') {
+      if (resp && resp.data) {
+        jsapi = resp.data;
+        console.log('jsapi: ', jsapi);
+        // save openid
+        if (jsapi.openid) {
+          localStorage.setItem('openid', jsapi.openid);
+        }
 
-    if (resp && resp.data) {
-      jsapi = resp.data;
-      // save openid
-      if (jsapi.openid) {
-        localStorage.setItem('openid', jsapi.openid);
-      }
-
-      if (jsapi.codeurl) {
-        location.href = jsapi.codeurl;
-      } else if (jsapi.signature) {
-        getWechatUserInfoByOpenId(code);
-        initWechat(resp);
+        if (jsapi.codeurl) {
+          location.href = jsapi.codeurl;
+        } else if (jsapi.signature) {
+          getWechatUserInfoByOpenId(jsapi.openid || openId);
+          initWechat(resp);
+        }
+      } else {
+        console.error('ERROR: get signature failed');
       }
     } else {
       console.error('ERROR: get signature failed');
@@ -103,7 +112,7 @@ $(function() {
       jsonText.code = code;
     }
 
-    $.post('/zsh/app_interface/index.php', {
+    $.post(requestUrl, {
       route: 'wechat/wechat/get_signature',
       token: null,
       jsonText: JSON.stringify(jsonText)

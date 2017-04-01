@@ -27,7 +27,7 @@ $(function() {
   };
 
   var create = function(data) {
-    $.post('/zsh/app_interface/index.php', {
+    $.post(requestUrl, {
       route: 'wechat/wechat/wechat_invoice',
       token: null,
       jsonText: JSON.stringify(data)
