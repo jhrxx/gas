@@ -10,7 +10,11 @@ $(function() {
   var openId;
   if (query && query.code) {
     code = query.code;
+    sessionStorage.code = code;
+  } else if(sessionStorage.code){
+    code = sessionStorage.code;
   }
+
   if (localStorage.getItem('openid')) {
     openId = localStorage.getItem('openid');
   }
@@ -21,15 +25,19 @@ $(function() {
     resp = JSON.parse(resp);
     if (resp.data && resp.status && resp.status.succeed === '1') {
       user = resp.data.userinfo;
-      // console.log('User: ', user);
-      if ($.isEmptyObject(localStorage['user_' + user.openid])) {
-        // storage user data
-        localStorage.setItem('user_' + user.openid, JSON.stringify(user));
-      }
+      if(user && user.union_id) {
+        console.log('User: ', user);
+        if ($.isEmptyObject(localStorage['user_' + openId])) {
+          // storage user data
+          localStorage.setItem('user_' + openId, JSON.stringify(user));
+        }
 
-      if ($.isEmptyObject(localStorage['unionid_' + user.openid])) {
-        // storage unionid
-        localStorage.setItem('unionid_' + user.openid, user.union_id);
+        if ($.isEmptyObject(localStorage['unionid_' + openId])) {
+          // storage unionid
+          localStorage.setItem('unionid_' + openId, user.union_id);
+        }
+      } else {
+        console.error('user is undefined or unionid is undefined');
       }
     }
   };
@@ -37,6 +45,7 @@ $(function() {
   var getWechatUserInfoByOpenId = function(id) {
     // console.log('getWechatUserInfoByOpenId: ', id);
     if (id) {
+      openId = id;
       if (typeof userInfo === 'undefined') {
         $.post(requestUrl, {
           route: 'wechat/wechat/get_wx_user',

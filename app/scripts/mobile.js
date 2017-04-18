@@ -3,7 +3,6 @@ var resp, success;
 // success = '{"status":{"succeed":"1"}}';
 
 $(function() {
-  var resend;
   var hintTimer;
   var blockTimer;
   var errorHintTimer;
@@ -60,6 +59,7 @@ $(function() {
         clearInterval(blockTimer);
       }
       showHint();
+      $('#resend button').text((maxTime) + 's');
       blockTimer = setInterval(function() {
         if (maxTime > 1) {
           $('#resend button').text((--maxTime) + 's');
@@ -77,11 +77,7 @@ $(function() {
     // console.log('onGetVerifyCode: ', data);
     if (data && data.status) {
       if (data.status.succeed === '1') {
-        if (resend) {
-          showBlockHint();
-        } else {
-          showHint();
-        }
+        showBlockHint();
       } else if (data.status.succeed === '0') {
         showErrorHint(data.status.error_desc);
       }
@@ -124,7 +120,7 @@ $(function() {
     if (isValidatePhoneNum(phoneNumber)) {
       $(this).addClass('hide');
       $('#resend').removeClass('hide');
-      getVerifyCode();
+      getVerifyCode(phoneNumber);
     } else {
       showErrorHint('请输入正确的手机号码');
     }
@@ -135,7 +131,6 @@ $(function() {
   $('#resend').click(function() {
     var phoneNumber = $('#phone_number').val().trim();
     if (maxTime === 0 && isValidatePhoneNum(phoneNumber)) {
-      resend = true;
       getVerifyCode(phoneNumber);
     }
 

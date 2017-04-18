@@ -27,7 +27,7 @@ $(function() {
         route: 'wechat/wechat/socre_push',
         token: null,
         jsonText: JSON.stringify({
-          'unionid:': unionId,
+          'unionid': unionId,
           'station_id': id
         })
       }, function(resp) {

@@ -8,3 +8,32 @@
 .weui-vcode-btn {
 	color: #0cf;
 }
+
+#mobile {
+	.weui-cells {
+		background-color: #eee;
+		&:before  {
+			display: none;
+		}
+		&:after {
+			border-bottom: 1px solid #393A3F;
+	    left: .6em;;
+	    right: .7em;;
+		}
+	}
+	.weui-cell {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		&:before  {
+			border-top: 1px solid #393A3F;
+	    left: .6em;;
+	    right: .7em;;
+      -webkit-transform-origin: 0 100%;
+    	transform-origin: 0 100%;
+		}
+	}
+}
+#resend button,
+#send button {
+	border: 0;
+}
