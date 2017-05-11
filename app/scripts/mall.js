@@ -95,7 +95,7 @@ $(function() {
     data = JSON.parse(data);
     // console.log(data);
     if (data.status.succeed === '1') {
-      if (data.data.list.length > 0) {
+      if (data.data && data.data.list && data.data.list.length > 0) {
         // renderTitles(data.data.titles);
         renderItems(data.data.list);
       } else {

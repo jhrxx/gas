@@ -3,7 +3,7 @@
 
 body {
   background: #eee;
-  font-family: "PingFangTC-Regular", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "微软雅黑", sans-serif; 
+  font-family: "PingFangTC-Regular", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "微软雅黑", sans-serif;
   color: #333;
 }
 .hide {
@@ -26,13 +26,31 @@ select.text-right {
   padding:  .4em 0;
 }
 .flex-btns {
-
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  .weui-btn {
+    margin-top: 15px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    &:after {
+      display: none;
+    }
+  }
 }
+
 .weui-footer_fixed-bottom {
   bottom: 0;
 }
 .weui-btn[disabled] {
   opacity: .5;
+}
+.weui-btn_alert {
+  background-color: #f0ad4e;
+}
+.weui-btn_alert:not(.weui-btn_disabled):active {
+  background-color: darken(#f0ad4e, 10%);
 }
 .weui-btn_default {
   background-color: #bfbfbf;

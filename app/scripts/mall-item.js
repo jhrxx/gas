@@ -10,6 +10,7 @@ $(function() {
   var query = getUrlQueryObj();
   var openId;
   var unionId;
+  var money;
   openId = localStorage.openid;
   if (openId) {
     unionId = localStorage.getItem('unionid_' + openId);
@@ -64,8 +65,48 @@ $(function() {
         exchangeItem();
         return false;
       });
+      $('#wechat_pay_btn').click(function() {
+        $('#loadingToast').removeClass('hide');
+
+        // storage data
+        var stationInfo = JSON.parse(localStorage.stationInfo);
+        $.post(requestUrl, {
+          route: 'wechat/wechat/product_pay',
+          token: null,
+          jsonText: JSON.stringify({
+            'unionid': unionId,
+            'openid': openId,
+            'station_id': stationInfo.station_id,
+            'score_product_id': query.id,
+            'product_number': quantity,
+            'money': money,
+            'time': getTimestamp()
+          })
+        }, function(data) {
+          data = JSON.parse(data);
+          if (data && data.status && data.status.succeed === '1') {
+
+            var jap = data.data.jsApiParameters;
+
+            wx.chooseWXPay({
+              timestamp: jap.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+              nonceStr: jap.nonceStr, // 支付签名随机串，不长于 32 位
+              package: jap.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+              signType: jap.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+              paySign: jap.paySign, // 支付签名
+              success: function() {
+                $('#loadingToast').addClass('hide');
+                window.location.href = 'exchange.html';
+              }
+            });
+          }
+          $('#loadingToast').addClass('hide');
+        });
+
+        return false;
+      });
     } else {
-      $('#add_invoice_btn').attr('disabled', 'disabled');
+      $('#add_invoice_btn, #wechat_pay_btn').attr('disabled', 'disabled');
       $('#quantity').text(0);
     }
 
@@ -91,9 +132,10 @@ $(function() {
     if (info.product_info) {
       html += '<li>详情：' + info.product_info + '</li>';
     }
-    // if (info.product_money) {
-    //   html += '<li>' + info.product_money + '</li>';
-    // }
+    if (info.product_money) {
+      money = info.product_money;
+      html += '<li>价格：￥' + info.product_money + '</li>';
+    }
     if (info.product_score) {
       html += '<li>积分：' + info.product_score + '</li>';
     }
@@ -102,7 +144,6 @@ $(function() {
     html += '</div>';
 
     $('#content').html(html);
-    // $('#add_invoice_btn').prop('href', 'gift.html?id=' + query.id);
 
     bindFn(info);
   };
